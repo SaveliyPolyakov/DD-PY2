@@ -57,6 +57,39 @@ class Essay:
 
 
 # TODO Написать 3 класса с документацией и аннотацией типов
+class Notebook:
+    def __init__(self, words_amount: Union[int], name: Union[str]):
+        if not isinstance(words_amount, int):
+            raise TypeError("Количество слов должно быть тиипа int")
+        self.words_amount = words_amount
+        if not isinstance(name, str):
+            raise TypeError("Название блокнота должно быть типа str")
+        self.name = name
+
+    def add_words_to_notebook(self, words: int) -> None:
+        """
+        Добавление слов в блокнот
+        :param words: количество слов
+        >>> notebook = Notebook(20, "")
+        >>> notebook.add_words_to_notebook(10)
+        """
+        if not isinstance(words, int):
+            raise TypeError("Количество добавляемых слов должно быть типа int")
+        if words < 0:
+            raise ValueError("Количество добавляемых слов должно быть больше 0")
+        ...
+
+    def change_name(self, name: str):
+        """
+        Переименование блокнота
+        :param name: название блокнота
+        >>> notebook = Notebook(20,"Блокнот")
+        >>> notebook.change_name("Блокнотик")
+        """
+        if not isinstance(name, str):
+            raise TypeError("Название должно быть типа str")
+        ...
+
 
 if __name__ == "__main__":
     doctest.testmod()
